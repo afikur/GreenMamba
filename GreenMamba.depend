@@ -1,7 +1,8 @@
 # depslib dependency file v1.0
-1503580382 source:d:\workspace\c++\greenmamba\main.cpp
+1503581965 source:d:\workspace\c++\greenmamba\main.cpp
 	<GL/gl.h>
 	<GL/glut.h>
+	"game.h"
 
 1301111164 c:\program files (x86)\codeblocks\mingw\include\gl\gl.h
 
@@ -217,4 +218,11 @@
 1301111164 c:\program files (x86)\codeblocks\mingw\include\gl\glu.h
 	<stddef.h>
 	<GL/gl.h>
+
+1503582319 source:d:\workspace\c++\greenmamba\game.cpp
+	<GL/gl.h>
+	<GL/glut.h>
+	"game.h"
+
+1503582002 d:\workspace\c++\greenmamba\game.h
 
