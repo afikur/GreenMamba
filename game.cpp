@@ -5,10 +5,15 @@
 #include "game.h"
 
 int gridX, gridY;
+int snake_length = 5;
 bool food = true;
 int foodX, foodY;
 short sDirection = RIGHT;
-int posX = 20, posY = 20;
+
+extern int score;
+
+int posX[60]={20, 20, 20, 20, 20}, posY[60] = {20, 19, 17, 17, 16};
+
 extern bool gameOver;
 
 void initGrid(int x, int y) {
@@ -52,27 +57,42 @@ void drawFood() {
 }
 
 void drawSnake() {
+    for(int i = snake_length-1; i > 0; i--) {
+        posX[i] = posX[i-1];
+        posY[i] = posY[i-1];
+    }
+
     if(sDirection == UP) {
-        posY++;
+        posY[0]++;
     }
     else if(sDirection == DOWN) {
-        posY--;
+        posY[0]--;
     }
     else if(sDirection == RIGHT) {
-        posX++;
+        posX[0]++;
     }
     else if(sDirection == LEFT) {
-        posX--;
+        posX[0]--;
+    }
+    for(int i = 0; i < snake_length; i++) {
+        if(i == 0)
+            glColor3f(0.0, 1.0,0.0);
+        else
+            glColor3f(0.0, 0.8, 0.0);
+        glRectd(posX[i], posY[i], posX[i]+1, posY[i]+1);
     }
 
-    glColor3f(0.0,1.0,0.0);
-    glRectd(posX, posY, posX+1, posY+1);
-
-    if(posX == 0 || posX == gridX-1 || posY == 0 || posY == gridY-1) {
+    if(posX[0] == 0 || posX[0] == gridX-1 || posY[0] == 0 || posY[0] == gridY-1) {
         gameOver = true;
     }
-    if(posX == foodX && posY == foodY)
+    if(posX[0] == foodX && posY[0] == foodY) {
+        snake_length++;
+        score++;
+        if(snake_length > MAX) {
+            snake_length = MAX;
+        }
         food = true;
+    }
 }
 
 void random(int &x, int &y) {

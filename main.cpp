@@ -1,4 +1,5 @@
 #include <windows.h>
+#include <stdlib.h>
 #include <GL/gl.h>
 #include <GL/glut.h>
 #include "game.h"
@@ -13,6 +14,8 @@ void timer_callback(int);
 void display_callback();
 void reshape_callback(int, int);
 void keyboard_callback(int, int, int);
+
+int score = 0;
 
 void init() {
     glClearColor(0.0, 0.0, 0.0, 1.0);
@@ -40,7 +43,11 @@ void display_callback() {
     drawFood();
     glutSwapBuffers();
     if(gameOver) {
-        MessageBox(NULL, "Your Score : ", "Game Over", 0);
+        char _score[10];
+        itoa(score, _score, 10);
+        char msg[50] = "Your Score: ";
+        strcat(msg, _score);
+        MessageBox(NULL, msg, "Game Over", 0);
         exit(0);
     }
 }
