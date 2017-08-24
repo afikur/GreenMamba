@@ -1,5 +1,6 @@
 # depslib dependency file v1.0
-1503584843 source:d:\workspace\c++\greenmamba\main.cpp
+1503591733 source:d:\workspace\c++\greenmamba\main.cpp
+	<windows.h>
 	<GL/gl.h>
 	<GL/glut.h>
 	"game.h"
@@ -219,10 +220,12 @@
 	<stddef.h>
 	<GL/gl.h>
 
-1503582395 source:d:\workspace\c++\greenmamba\game.cpp
+1503586190 source:d:\workspace\c++\greenmamba\game.cpp
 	<GL/gl.h>
 	<GL/glut.h>
+	<ctime>
+	<algorithm>
 	"game.h"
 
-1503584498 d:\workspace\c++\greenmamba\game.h
+1503586139 d:\workspace\c++\greenmamba\game.h
 
